@@ -1,19 +1,21 @@
 'use strict';
 
-var app = require('../src/server');
+var _server = require('../src/server');
 
-var http = require('http');
+var _server2 = _interopRequireDefault(_server);
+
+var _http = require('http');
+
+var _http2 = _interopRequireDefault(_http);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var port = process.env.PORT || 3000;
-app.set('port', port);
+_server2.default.set('port', port);
 
-var server = http.createServer(app);
+var server = _http2.default.createServer(_server2.default);
 
 server.listen(port);
-server.on('listening', onListening);
-
-function onListening() {
-	var addr = server.address();
-	var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
-	console.log('Listening on ' + bind);
-}
+server.on('listening', function () {
+	console.log('Listening on port: ' + server.address().port);
+});

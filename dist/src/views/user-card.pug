@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  a(href=url class="card-container user-card")
+    img(class="block avatar" src=avatar)
+    if include.name
+      span(class="block name")=name
+    span(class="block username")=username
+    span(class="block followers") Followers #{followers}
+    span(class="block gists")=gists
+    span(class="block bio")=bio
+    span(class="block repos")=repos
+    span(class="block company")=company
+    //- h1=title
+    //- p User card
+    //- p Username #{username}
+    //- p Name #{name}
+

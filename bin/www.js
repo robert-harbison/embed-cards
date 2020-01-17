@@ -1,6 +1,6 @@
-var app = require('../src/server')
+import app from '../src/server'
 
-var http = require('http')
+import http from 'http'
 
 var port = process.env.PORT || 3000
 app.set('port', port)
@@ -8,10 +8,6 @@ app.set('port', port)
 var server = http.createServer(app)
 
 server.listen(port)
-server.on('listening', onListening)
-
-function onListening() {
-	var addr = server.address()
-	var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port
-	console.log('Listening on ' + bind)
-}
+server.on('listening', () => {
+	console.log('Listening on port: ' + server.address().port)
+})
