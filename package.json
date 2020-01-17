@@ -1,19 +1,40 @@
 {
-  "name": "embeddable-github-cards",
-  "version": "0.0.1",
-  "description": "Unofficial GitHub cards that are embeddable onto your site.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/robert-harbison/embeddable-github-cards.git"
-  },
-  "author": "Robert Harbison",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/robert-harbison/embeddable-github-cards/issues"
-  },
-  "homepage": "https://github.com/robert-harbison/embeddable-github-cards#readme"
+	"name": "embeddable-github-cards",
+	"version": "0.0.1",
+	"description": "Unofficial GitHub cards that are embeddable onto your site.",
+	"main": "www.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/robert-harbison/embeddable-github-cards.git"
+	},
+	"author": "Robert Harbison",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/robert-harbison/embeddable-github-cards/issues"
+	},
+	"homepage": "https://github.com/robert-harbison/embeddable-github-cards#readme",
+	"scripts": {
+		"clean": "rimraf dist/",
+		"preinstall": "npx npm-force-resolutions",
+		"debug": "nodemon --verbose --watch bin --watch src --exec \"npm run build:start\"",
+		"start": "node -r dotenv/config ./dist/bin/www dotenv_config_path=./dev.env",
+		"build": "npm run clean && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./package-lock.json,./npm-debug.log,./doc --copy-files",
+		"build:start": "npm run build && npm run start"
+	},
+	"dependencies": {
+		"express": "~4.16.1",
+		"morgan": "~1.9.1",
+		"dotenv": "^8.2.0",
+		"pug": "^2.0.4"
+	},
+	"devDependencies": {
+		"babel-cli": "^6.26.0",
+		"babel-preset-env": "^1.7.0",
+		"nodemon": "^2.0.2",
+		"npm-force-resolutions": "0.0.3",
+		"rimraf": "^3.0.0"
+	},
+	"resolutions": {
+		"braces": "2.3.1"
+	}
 }
