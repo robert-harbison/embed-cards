@@ -26,7 +26,6 @@
 		"express": "~4.16.1",
 		"github-api": "^3.3.0",
 		"morgan": "~1.9.1",
-		"node-fetch": "^2.6.0",
 		"pug": "^2.0.4"
 	},
 	"devDependencies": {

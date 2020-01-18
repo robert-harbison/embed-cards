@@ -15,7 +15,7 @@
 ### Notes To Self
 TODO:
     - Add prettier and husky for prettier on precommit
-
+    - Test the max github bio length to make sure it looks good or cut it off.
 
 ## .env File
 Example dev.env:

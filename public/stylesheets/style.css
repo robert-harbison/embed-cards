@@ -1,18 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
 * {
 	padding: 0;
 	margin: 0;
+	font-family: 'Roboto', sans-serif;
 }
 
+/* --- Cards --- */
 .card-container {
 	display: block;
-	padding: 20px;
-	background: red;
+	cursor: pointer;
+	border-radius: 5px;
+	text-decoration: none;
+	-webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
 }
 
+.card-container.light {
+}
+
+/* --- Themes --- */
+.dark {
+	background-color: black;
+	color: #ffffff;
+}
+
+.light {
+	background-color: #ffffff;
+	color: black;
+}
+
+/* --- Utils --- */
 .block {
 	display: block;
 }
 
-/* --- User Card --- */
-.user-card {
+.spacer-extra-small {
+	height: 2px;
+}
+
+.spacer-small {
+	height: 10px;
+}
+
+.spacer-large {
+	height: 16px;
 }

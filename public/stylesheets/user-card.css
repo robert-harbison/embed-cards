@@ -1,0 +1,70 @@
+.user-card-vertical {
+	width: 220px;
+	text-align: center;
+	color: #424242;
+}
+
+.user-card-vertical * {
+	-webkit-box-transition: 0.4s;
+	-moz-box-transition: 0.4s;
+	transition: 0.4s;
+}
+
+.user-card-vertical:hover .avatar {
+	/* transform: scale(1.05); */
+}
+
+.user-card-vertical:hover .name {
+	/* transform: scale(1.1); */
+}
+
+.user-card-vertical .name {
+	font-size: 1.4em;
+}
+
+.user-card-vertical .username {
+	font-size: 0.9em;
+	text-decoration: underline;
+	color: #848484;
+}
+
+.user-card-vertical .avatar {
+	border-radius: 50%;
+	width: 60%;
+	margin: 0 auto;
+}
+
+/* Info Box */
+.info-container {
+	display: flex;
+	flex-direction: row;
+	border-top: 1px solid #dcdcdc;
+}
+
+.info-child {
+	display: block;
+	flex: 3 20px;
+	padding: 10px 3px 7px 3px;
+	border-right: 1px solid #dcdcdc;
+	font-size: 0.9em;
+}
+
+.info-child .subtitle {
+	margin-top: 2px;
+	font-size: 0.8em;
+	color: #838383;
+}
+
+.info-child span {
+	display: block;
+}
+
+/* NOTE: There should only be 1 large element in this container to work correctly */
+.info-child.large {
+	flex: 2 20px;
+}
+
+.info-child:last-child {
+	border: none;
+	flex: 2 20px;
+}
