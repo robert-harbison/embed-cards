@@ -1,12 +1,4 @@
-/* --- General Styles - For Both Cards --- */
-.user-card.light {
-	color: #424242;
-}
-
-.user-card.dark {
-	color: #f7f7f7;
-}
-
+/* --- General Styles - For All User Cards --- */
 .user-card .name {
 	font-size: 1.4em;
 }
@@ -15,7 +7,7 @@
 	font-size: 0.8em;
 	padding-left: 10px;
 	padding-right: 10px;
-	color: #848484;
+	color: #838383;
 }
 
 .user-card .username {
@@ -55,6 +47,27 @@
 	font-size: 0.9em;
 }
 
+.user-card .info-container {
+	display: flex;
+	flex-direction: row;
+	border-top: 1px solid #dcdcdc;
+	border-bottom: 1px solid #dcdcdc;
+}
+
+.user-card .bio {
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 0.9em;
+}
+
+.user-card .avatar {
+	border-radius: 50%;
+}
+
+.user-card .info-child {
+	padding: 6px 3px 4px 3px;
+}
+
 /* --- Vertical Card --- */
 .user-card-vertical {
 	width: 220px;
@@ -65,18 +78,7 @@
 	width: 440px;
 }
 
-.user-card-vertical .bio {
-	padding-left: 10px;
-	padding-right: 10px;
-	font-size: 0.9em;
-}
-
-.user-card-vertical.light .bio {
-	color: #000000;
-}
-
 .user-card-vertical .avatar {
-	border-radius: 50%;
 	width: 60%;
 	margin: 0 auto;
 }
@@ -85,20 +87,8 @@
 	width: 40% !important;
 }
 
-/* --- Info Box --- */
-.user-card-vertical .info-container {
-	display: flex;
-	flex-direction: row;
-	border-top: 1px solid #dcdcdc;
-	border-bottom: 1px solid #dcdcdc;
-}
-
 .user-card-vertical.dark .info-container {
 	border-color: #444444;
-}
-
-.user-card-vertical .info-child {
-	padding: 10px 3px 7px 3px;
 }
 
 /* --- Horizontal Card --- */
@@ -127,36 +117,17 @@
 }
 
 .user-card-horizontal .bio {
-	font-size: 0.8em;
-	padding-left: 10px;
-	padding-right: 10px;
-	font-size: 0.9em;
 	padding-left: 0;
-	/* color: #f7f7f7; */
-}
-
-.user-card-horizontal.light .bio {
-	color: #000000;
 }
 
 .user-card-horizontal .avatar {
-	border-radius: 50%;
 	width: 100%;
 }
 
-/* --- Horizontal Info Box --- */
 .user-card-horizontal .info-container {
-	display: flex;
-	flex-direction: row;
-	border-top: 1px solid #dcdcdc;
-	border-bottom: 1px solid #dcdcdc;
 	text-align: center;
 }
 
 .user-card-horizontal.dark .info-container {
 	border-color: #444444;
-}
-
-.user-card-horizontal .info-child {
-	padding: 6px 3px 4px 3px;
 }

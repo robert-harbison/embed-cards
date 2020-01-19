@@ -21,6 +21,11 @@
 }
 
 .card-container.light {
+	color: #424242;
+}
+
+.card-container.dark {
+	color: #f7f7f7;
 }
 
 /* --- Themes --- */
