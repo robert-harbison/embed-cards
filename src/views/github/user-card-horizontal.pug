@@ -5,21 +5,18 @@ html
     link(rel='stylesheet', href='../../../../stylesheets/github/user-card.css')
   body
     block content
-      a(href=url class="card-container user-card-horizontal " + theme target="_blank")
+      a(href=url class="card-container user-card-horizontal user-card " + theme target="_blank")
         div(class="main-container")
           div(class="left")
             img(class="avatar" src=avatar)
           div(class="right")
             if include.name
               span(class="name block")=name
-              //- div(class="spacer-extra-small")
             if include.username
               span(class="username block") @#{username}
               div(class="spacer-extra-small")
             if include.bio
               span(class="bio block")=bio
-              //- div(class="spacer-extra-small")
-        //- div(class="spacer-extra-small")
         div(class="info-container")
           if include.gists
             div(class="info-child large")

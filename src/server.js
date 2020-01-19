@@ -20,7 +20,7 @@ app.use('/api/cards/github/', cardRoutes)
 
 // Catch 404
 app.use((req, res, next) => {
-	res.status(404).send('Not Found')
+	res.render('404', {})
 })
 
 export default app

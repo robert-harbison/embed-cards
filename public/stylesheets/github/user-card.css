@@ -1,3 +1,60 @@
+/* --- General Styles - For Both Cards --- */
+.user-card.light {
+	color: #424242;
+}
+
+.user-card.dark {
+	color: #f7f7f7;
+}
+
+.user-card .name {
+	font-size: 1.4em;
+}
+
+.user-card .company {
+	font-size: 0.8em;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: #848484;
+}
+
+.user-card .username {
+	font-size: 0.9em;
+	text-decoration: underline;
+	color: #838383;
+}
+
+.user-card.dark .info-child {
+	border-color: #444444;
+}
+
+.user-card .info-child .subtitle {
+	margin-top: 2px;
+	font-size: 0.8em;
+	color: #838383;
+}
+
+.user-card .info-child.large {
+	flex: 2 20px;
+}
+
+.user-card .info-child:last-child {
+	border: none;
+	flex: 2 20px;
+}
+
+.user-card .info-child span {
+	display: block;
+}
+
+.user-card .info-child {
+	display: block;
+	flex: 3 20px;
+	padding: 6px 3px 4px 3px;
+	border-right: 1px solid #dcdcdc;
+	font-size: 0.9em;
+}
+
 /* --- Vertical Card --- */
 .user-card-vertical {
 	width: 220px;
@@ -8,42 +65,10 @@
 	width: 440px;
 }
 
-.user-card-vertical.light {
-	color: #424242;
-}
-
-.user-card-vertical.dark {
-	color: #f7f7f7;
-}
-
-.user-card-vertical * {
-	-webkit-box-transition: 0.4s;
-	-moz-box-transition: 0.4s;
-	transition: 0.4s;
-}
-
-.user-card-vertical .name {
-	font-size: 1.4em;
-}
-
-.user-card-vertical .company {
-	font-size: 0.8em;
-	padding-left: 10px;
-	padding-right: 10px;
-	color: #848484;
-}
-
-.user-card-vertical .username {
-	font-size: 0.9em;
-	text-decoration: underline;
-	color: #838383;
-}
-
 .user-card-vertical .bio {
 	padding-left: 10px;
 	padding-right: 10px;
 	font-size: 0.9em;
-	/* color: #f7f7f7; */
 }
 
 .user-card-vertical.light .bio {
@@ -73,56 +98,13 @@
 }
 
 .user-card-vertical .info-child {
-	display: block;
-	flex: 3 20px;
 	padding: 10px 3px 7px 3px;
-	border-right: 1px solid #dcdcdc;
-	font-size: 0.9em;
-}
-
-.user-card-vertical.dark .info-child {
-	border-color: #444444;
-}
-
-.user-card-vertical .info-child .subtitle {
-	margin-top: 2px;
-	font-size: 0.8em;
-	color: #838383;
-}
-
-.user-card-vertical .info-child span {
-	display: block;
-}
-
-/* NOTE: There should only be 1 large element in this container to work correctly */
-.user-card-vertical .info-child.large {
-	flex: 2 20px;
-}
-
-.user-card-vertical .info-child:last-child {
-	border: none;
-	flex: 2 20px;
 }
 
 /* --- Horizontal Card --- */
 .user-card-horizontal {
 	width: 440px;
-	/* height: 150px; */
 	text-align: left;
-}
-
-.user-card-horizontal.light {
-	color: #424242;
-}
-
-.user-card-horizontal.dark {
-	color: #f7f7f7;
-}
-
-.user-card-horizontal * {
-	-webkit-box-transition: 0.4s;
-	-moz-box-transition: 0.4s;
-	transition: 0.4s;
 }
 
 .user-card-horizontal .main-container {
@@ -130,38 +112,18 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: row;
-	/* overflow: auto; */
-	/* height: 30%; */
 	padding: 10px;
 }
 
 .user-card-horizontal .main-container .left {
 	float: left;
 	width: 30%;
-	/* padding-left: 1%; */
 }
 
 .user-card-horizontal .main-container .right {
 	float: right;
 	width: 70%;
 	padding-left: 10px;
-}
-
-.user-card-horizontal .name {
-	font-size: 1.4em;
-}
-
-.user-card-horizontal .company {
-	font-size: 0.8em;
-	padding-left: 10px;
-	padding-right: 10px;
-	color: #848484;
-}
-
-.user-card-horizontal .username {
-	font-size: 0.9em;
-	text-decoration: underline;
-	color: #838383;
 }
 
 .user-card-horizontal .bio {
@@ -180,9 +142,6 @@
 .user-card-horizontal .avatar {
 	border-radius: 50%;
 	width: 100%;
-	/* padding-top: 5px; */
-	/* padding-left: 5px; */
-	/* margin: 0 auto; */
 }
 
 /* --- Horizontal Info Box --- */
@@ -199,33 +158,5 @@
 }
 
 .user-card-horizontal .info-child {
-	display: block;
-	flex: 3 20px;
 	padding: 6px 3px 4px 3px;
-	border-right: 1px solid #dcdcdc;
-	font-size: 0.9em;
-}
-
-.user-card-horizontal.dark .info-child {
-	border-color: #444444;
-}
-
-.user-card-horizontal .info-child .subtitle {
-	margin-top: 2px;
-	font-size: 0.8em;
-	color: #838383;
-}
-
-.user-card-horizontal .info-child span {
-	display: block;
-}
-
-/* NOTE: There should only be 1 large element in this container to work correctly */
-.user-card-horizontal .info-child.large {
-	flex: 2 20px;
-}
-
-.user-card-horizontal .info-child:last-child {
-	border: none;
-	flex: 2 20px;
 }

@@ -21,8 +21,11 @@
 TODO:
     - Add prettier and husky for prettier on precommit
     - Make the api doc genrator run on commit
+    - Add eslint
+    - Add winston logger
     - Test the max github bio length to make sure it looks good or cut it off.
     - Add a configurable character limit to bio's
+    - Can I recode the tempaltes for horiz and vertical to use a responsive patter so there isn't 2 templates? If so add option for width so its responsive.
 
 ### To Test
     - Does it work with gravitar and no profile picture

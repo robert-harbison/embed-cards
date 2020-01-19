@@ -1,11 +1,11 @@
 html
   head
     title= title
-    link(rel='stylesheet', href='../../../stylesheets/style.css')
-    link(rel='stylesheet', href='../../../stylesheets/user-card.css')
+    link(rel='stylesheet', href='../../../../stylesheets/style.css')
+    link(rel='stylesheet', href='../../../../stylesheets/github/user-card.css')
   body
     block content
-      a(href=url class="card-container user-card-vertical " + theme + " " + size target="_blank")
+      a(href=url class="card-container user-card-vertical user-card " + theme + " " + size target="_blank")
         div(class="spacer-large")
         img(class="avatar" src=avatar)
         div(class="spacer-small")

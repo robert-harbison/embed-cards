@@ -1,0 +1,21 @@
+.card-container.not-found-card {
+	width: 250px;
+	height: 100px;
+	text-align: center;
+}
+
+.card-container.not-found-card .container {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.card-container.not-found-card .face {
+	width: 50px;
+	height: 100%;
+	background: red;
+}
+
+.card-container.not-found-card .face h2 {
+	transform: rotate(90deg);
+}

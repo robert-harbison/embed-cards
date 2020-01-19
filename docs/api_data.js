@@ -5,7 +5,7 @@ define({ "api": [
     "title": "",
     "name": "GetUserCard",
     "group": "GithubCards",
-    "description": "<p>Gets the user-card view for the specified user. (Usually used in iFrame)</p>",
+    "description": "<p>Gets the user-card view for the specified user. (Usually used in iFrame). If company or bio is left out it will be disabled automatically.</p>",
     "parameter": {
       "fields": {
         "Include Info": [
@@ -72,14 +72,21 @@ define({ "api": [
             "type": "Boolean",
             "optional": false,
             "field": "isVertical",
-            "description": "<p>Should the card use the vertical (true) or horizontal (false) layout.</p>"
+            "description": "<p>Should the card use the vertical (true) or horizontal (false) layout. This can be left out. Defaults to vertical.</p>"
           },
           {
             "group": "Card Settings",
             "type": "String",
             "optional": false,
             "field": "theme",
-            "description": "<p>Should the card use the &quot;dark&quot; or &quot;light&quot; theme.</p>"
+            "description": "<p>Should the card use the &quot;dark&quot; or &quot;light&quot; theme. This can be left out. Defaults to light.</p>"
+          },
+          {
+            "group": "Card Settings",
+            "type": "String",
+            "optional": false,
+            "field": "size",
+            "description": "<p>Should the card be &quot;normal&quot; or &quot;large&quot; size. This can be left out. Currently only works on vertical layouts. Defaults to normal.</p>"
           }
         ]
       }
@@ -98,7 +105,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "src/routes/cardRoutes.js",
+    "filename": "src/routes/github/cardRoutes.js",
     "groupTitle": "GithubCards"
   }
 ] });
