@@ -3,7 +3,7 @@ import path from 'path'
 import logger from 'morgan'
 
 // Routes
-import cardRoutes from './routes/cardRoutes'
+import cardRoutes from './routes/github/cardRoutes'
 
 var app = express()
 
@@ -16,7 +16,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, '../public')))
 
-app.use('/api/cards', cardRoutes)
+app.use('/api/cards/github/', cardRoutes)
 
 // Catch 404
 app.use((req, res, next) => {

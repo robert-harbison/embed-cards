@@ -5,22 +5,18 @@ html
     link(rel='stylesheet', href='../../../stylesheets/user-card.css')
   body
     block content
-      a(href=url class="card-container user-card-vertical " + theme)
+      a(href=url class="card-container user-card-vertical " + theme + " " + size target="_blank")
         div(class="spacer-large")
         img(class="avatar" src=avatar)
         div(class="spacer-small")
         if include.name
           span(class="name block")=name
-          div(class="spacer-extra-small")
         if include.username
           span(class="username block") @#{username}
           div(class="spacer-extra-small")
         if include.bio
           span(class="bio block")=bio
-          //- div(class="spacer-extra-small")
-        if include.company || company == ''
-          span(class="company block") Works At: #{company}
-          div(class="spacer-extra-small")
+        div(class="spacer-extra-small")
         div(class="info-container")
           if include.gists
             div(class="info-child large")
@@ -34,3 +30,7 @@ html
             div(class="info-child")
               span(class="block repos") #{repos}
               span(class="subtitle") Repos
+        if include.company
+          div(class="spacer-extra-small")
+          span(class="company block") Works At: #{company}
+          div(class="spacer-extra-small")

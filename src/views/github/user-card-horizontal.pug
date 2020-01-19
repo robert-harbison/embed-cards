@@ -1,0 +1,39 @@
+html
+  head
+    title= title
+    link(rel='stylesheet', href='../../../../stylesheets/style.css')
+    link(rel='stylesheet', href='../../../../stylesheets/github/user-card.css')
+  body
+    block content
+      a(href=url class="card-container user-card-horizontal " + theme target="_blank")
+        div(class="main-container")
+          div(class="left")
+            img(class="avatar" src=avatar)
+          div(class="right")
+            if include.name
+              span(class="name block")=name
+              //- div(class="spacer-extra-small")
+            if include.username
+              span(class="username block") @#{username}
+              div(class="spacer-extra-small")
+            if include.bio
+              span(class="bio block")=bio
+              //- div(class="spacer-extra-small")
+        //- div(class="spacer-extra-small")
+        div(class="info-container")
+          if include.gists
+            div(class="info-child large")
+              span(class="gists") #{gists}
+              span(class="subtitle") Gists
+          if include.followers
+            div(class="info-child")
+              span(class="followers") #{followers}
+              span(class="subtitle") Followers
+          if include.repos
+            div(class="info-child")
+              span(class="block repos") #{repos}
+              span(class="subtitle") Repos
+        if include.company
+          div(class="spacer-extra-small")
+          span(class="company block") Works At: #{company}
+          div(class="spacer-extra-small")

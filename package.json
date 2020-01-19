@@ -19,7 +19,8 @@
 		"debug": "nodemon -e js,pug,css --verbose --watch bin --watch public --watch src --exec \"npm run build:start\"",
 		"start": "node -r dotenv/config ./dist/bin/www dotenv_config_path=./dev.env",
 		"build": "npm run clean && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./package-lock.json,./npm-debug.log,./doc --copy-files",
-		"build:start": "npm run build && npm run start"
+		"build:start": "npm run build && npm run start",
+		"gendocs": "apidoc -i src/ -o docs/"
 	},
 	"dependencies": {
 		"dotenv": "^8.2.0",
@@ -29,6 +30,7 @@
 		"pug": "^2.0.4"
 	},
 	"devDependencies": {
+		"apidoc": "^0.19.1",
 		"babel-cli": "^6.26.0",
 		"babel-preset-env": "^1.7.0",
 		"nodemon": "^2.0.2",

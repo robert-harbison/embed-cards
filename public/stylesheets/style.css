@@ -22,7 +22,7 @@
 
 /* --- Themes --- */
 .dark {
-	background-color: black;
+	background-color: #232323;
 	color: #ffffff;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .spacer-extra-small {
-	height: 2px;
+	height: 6px;
 }
 
 .spacer-small {
