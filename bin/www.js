@@ -1,3 +1,5 @@
+import '@babel/polyfill'
+
 import app from '../src/server'
 
 import http from 'http'

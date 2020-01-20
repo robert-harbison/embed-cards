@@ -1,13 +1,17 @@
 [WIP] Check back for updates.
 
+# Upcoming
+    - Embed Cards api and website
+    - Embed Cards React npm package
+    - NPM Package Card
+    - Stackoverflow Card
+    - LinkedIn Card
+    
+
 ### For Developers
 # Get Started Locally
     - Clone Repo
     - Create dev.env file with required fields.
-
-# Upcoming
-    - Release of the Embed Cards api and website
-    - Release of Embed Cards React npm package
 
 # NPM Scripts
     - clean - Clean the distribution directory.
@@ -16,6 +20,9 @@
     - build - Builds the server.
     - build:start - Builds and starts the server using the buld and start scripts.
     - gendocs - Generate API documentation
+
+# Notes To Developers
+    - Type npm install to run the force resolve to fix the braces npm package vulnerability.
 
 ### Notes To Self
 TODO:
@@ -41,3 +48,7 @@ PORT=4000
 GITHUB_TOKEN=[token]
 GITHUB_USERNAME=[username]
 ```
+
+## Certificates
+- Create a folder in the main directory called 'ssl'
+    - github.pem

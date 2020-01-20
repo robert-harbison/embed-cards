@@ -1,19 +1,21 @@
-import GitHub from 'github-api'
+// import GitHub from 'github-api'
+import { App } from '@octokit/app'
+import { request } from '@octokit/request'
 
-// basic auth
-var gh = new GitHub({
-	username: process.env.GITHUB_USERNAME,
-	token: process.env.GITHUB_TOKEN,
-})
+import fs from 'fs'
+import path from 'path'
 
-export function getUser(username, callback) {
-	var user = gh.getUser(username)
-	user.getProfile(function(err, user) {
-		if (err) {
-			console.log('Error getting github user. ' + err)
-			return
-		}
+var githubCert = path.resolve(__dirname, '../../ssl/github.pem')
 
-		callback(user)
+const app = new App({ id: process.env.GITHUB_APP_ID, privateKey: fs.readFileSync(githubCert) })
+const jwt = app.getSignedJsonWebToken()
+
+export async function getUser(username) {
+	return await request('GET /users/:username', {
+		username: username,
+		headers: {
+			// authorization: `token ${installationAccessToken}`,
+			accept: 'application/vnd.github.machine-man-preview+json',
+		},
 	})
 }
