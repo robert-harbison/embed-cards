@@ -13,8 +13,8 @@ html
               span(class="repo-name block")=full_name
             else
               span(class="repo-name block")=name
-            if include.username
-              span(class="username block") @#{username}
+            if include.createdBy
+              span(class="username block") Created By #{username}
               div(class="spacer-extra-small")
             if include.description
               span(class="description block")=description

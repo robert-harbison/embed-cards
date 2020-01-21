@@ -10,7 +10,7 @@ var router = express.Router()
  * @apiGroup Github
  * @apiDescription Gets the repo-card view for the specified repo. (Usually used in iFrame).
  *
- * @apiParam (Include Info) {Boolean} includeUsername Should the users username be included.
+ * @apiParam (Include Info) {Boolean} includeCreatedBy Should the users username be included.
  * @apiParam (Include Info) {Boolean} includeForks Should the follower count be included.
  * @apiParam (Include Info) {Boolean} includeWatchers Should the users gist count be included.
  * @apiParam (Include Info) {Boolean} includeStars Should the users bio be included.
@@ -24,7 +24,7 @@ var router = express.Router()
  */
 router.get('/repo-card/:owner/:repo', function(req, res, next) {
 	// Checks what to include and what not to include
-	let includeUsername = req.query.includeUsername ? req.query.includeUsername == 'true' : true
+	let includeCreatedBy = req.query.includeCreatedBy ? req.query.includeCreatedBy == 'true' : true
 	let includeForks = req.query.includeForks ? req.query.includeForks == 'true' : true
 	let includeWatchers = req.query.includeWatchers ? req.query.includeWatchers == 'true' : true
 	let includeStars = req.query.includeStars ? req.query.includeStars == 'true' : true
@@ -50,7 +50,7 @@ router.get('/repo-card/:owner/:repo', function(req, res, next) {
 				forks: json.data.forks_count,
 				license: json.data.license.key,
 				include: {
-					username: includeUsername,
+					createdBy: includeCreatedBy,
 					forks: includeForks,
 					watchers: includeWatchers,
 					stars: includeStars,
