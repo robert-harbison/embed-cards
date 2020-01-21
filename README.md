@@ -44,9 +44,8 @@ TODO:
 ## .env File
 Example dev.env:
 ```
-PORT=4000
-GITHUB_TOKEN=[token]
-GITHUB_USERNAME=[username]
+PORT=[port by default 4000]
+GITHUB_APP_ID=[appID]
 ```
 
 ## Certificates

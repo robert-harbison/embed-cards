@@ -44,6 +44,10 @@
 	display: block;
 }
 
+.inline-block {
+	display: inline-block;
+}
+
 .spacer-extra-small {
 	height: 6px;
 }

@@ -1,6 +1,33 @@
-extends layout
-
-block content
-  div(class="card-container")
-    h1=title
-    p Welcome to #{title}
+html
+  head
+    title=title
+    link(rel='stylesheet', href='../../../../../stylesheets/style.css')
+    link(rel='stylesheet', href='../../../../../stylesheets/github/repo-card.css')
+  body
+    block content
+      a(href=url class="card-container repo-card " + theme target="_blank")
+        div(class="main-container")
+            if include.license
+              span(class="license block subtitle")=license
+            if showFullname
+              span(class="repo-name block")=full_name
+            else
+              span(class="repo-name block")=name
+            if include.username
+              span(class="username block") @#{username}
+              div(class="spacer-extra-small")
+            if include.description
+              span(class="description block")=description
+        div(class="info-container")
+          if include.forks
+            div(class="info-child large")
+              span(class="gists") #{forks}
+              span(class="subtitle") Forks
+          if include.watchers
+            div(class="info-child")
+              span(class="followers") #{watchers}
+              span(class="subtitle") Watching
+          if include.stars
+            div(class="info-child")
+              span(class="block repos") #{stars}
+              span(class="subtitle") Stars

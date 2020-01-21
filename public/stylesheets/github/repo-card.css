@@ -1,0 +1,78 @@
+/* --- General Styles - For All User Cards --- */
+.repo-card {
+	width: 440px;
+	text-align: left;
+}
+
+.repo-card .repo-name {
+	font-size: 1.4em;
+}
+
+.repo-card .license {
+	float: right;
+}
+
+.repo-card .subtitle {
+	font-size: 0.8em;
+	color: #838383;
+}
+
+.repo-card .username {
+	font-size: 0.9em;
+	text-decoration: underline;
+	color: #838383;
+}
+
+.repo-card.dark .info-child {
+	border-color: #444444;
+}
+
+.repo-card .info-child .subtitle {
+	margin-top: 2px;
+	font-size: 0.8em;
+	color: #838383;
+}
+
+.repo-card .info-child:last-child {
+	border: none;
+	flex: 2 20px;
+}
+
+.repo-card .info-child span {
+	display: block;
+}
+
+.repo-card .info-child {
+	display: block;
+	flex: 3 20px;
+	padding: 6px 3px 4px 3px;
+	border-right: 1px solid #dcdcdc;
+	font-size: 0.9em;
+}
+
+.repo-card .info-container {
+	display: flex;
+	flex-direction: row;
+	border-top: 1px solid #dcdcdc;
+	/* border-bottom: 1px solid #dcdcdc; */
+}
+
+.repo-card .description {
+	font-size: 0.9em;
+}
+
+.repo-card .info-child {
+	padding: 6px 3px 4px 3px;
+}
+
+.repo-card .main-container {
+	padding: 10px;
+}
+
+.repo-card .info-container {
+	text-align: center;
+}
+
+.user-card.dark .info-container {
+	border-color: #444444;
+}

@@ -1,22 +1,73 @@
 import express from 'express'
-import { getUser, getDetails as getRepoDetails } from '../../services/github'
+import { getUser, getRepo } from '../../services/github'
 import { numberWithCommas } from '../../utils'
 
 var router = express.Router()
 
-// Returns the repo-card view
+/**
+ * @api {get} /api/cards/repo-card/:owner/:repo
+ * @apiName GetRepoCard
+ * @apiGroup Github
+ * @apiDescription Gets the repo-card view for the specified repo. (Usually used in iFrame).
+ *
+ * @apiParam (Include Info) {Boolean} includeUsername Should the users username be included.
+ * @apiParam (Include Info) {Boolean} includeForks Should the follower count be included.
+ * @apiParam (Include Info) {Boolean} includeWatchers Should the users gist count be included.
+ * @apiParam (Include Info) {Boolean} includeStars Should the users bio be included.
+ * @apiParam (Include Info) {Boolean} includeDescription Should the users repo count be included.
+ * @apiParam (Include Info) {Boolean} includeLicense Should the users company be included.
+ *
+ * @apiParam (Card Settings) {String} theme Should the card use the "dark" or "light" theme. This can be left out. Defaults to light.
+ * @apiParam (Card Settings) {String} showFullname Should we show the fullname or short name. (Defaults to true)
+ *
+ * @apiSuccess {HTML} EmbeddableCardPage The Github repo card. (Usually used in a iFrame)
+ */
 router.get('/repo-card/:owner/:repo', function(req, res, next) {
-	getRepoDetails((json) => {
-		res.send(json)
-	})
+	// Checks what to include and what not to include
+	let includeUsername = req.query.includeUsername ? req.query.includeUsername == 'true' : true
+	let includeForks = req.query.includeForks ? req.query.includeForks == 'true' : true
+	let includeWatchers = req.query.includeWatchers ? req.query.includeWatchers == 'true' : true
+	let includeStars = req.query.includeStars ? req.query.includeStars == 'true' : true
+	let includeDescription = req.query.includeDescription ? req.query.includeDescription == 'true' : true
+	let includeLicense = req.query.includeLicense ? req.query.includeLicense == 'true' : true
 
-	//res.render('github/repo-card', { title: '' })
+	// Get other variables for the card
+	let theme = req.query.theme || 'light'
+	let showFullname = req.query.showFullname ? req.query.showFullname == 'true' : true // Use full name or part name
+
+	getRepo(req.params.owner, req.params.repo)
+		.then((json) => {
+			let renderVars = {
+				theme: theme,
+				showFullname: showFullname,
+				name: json.data.name,
+				full_name: json.data.full_name,
+				username: json.data.owner.login,
+				url: json.data.html_url,
+				description: json.data.description,
+				stars: json.data.stargazers_count,
+				watchers: json.data.watchers_count,
+				forks: json.data.forks_count,
+				license: json.data.license.key,
+				include: {
+					username: includeUsername,
+					forks: includeForks,
+					watchers: includeWatchers,
+					stars: includeStars,
+					description: includeDescription,
+					license: includeLicense,
+				},
+			}
+
+			res.render('github/repo-card', renderVars)
+		})
+		.catch(console.log)
 })
 
 /**
  * @api {get} /api/cards/user-card/:github_username
  * @apiName GetUserCard
- * @apiGroup GithubCards
+ * @apiGroup Github
  * @apiDescription Gets the user-card view for the specified user. (Usually used in iFrame). If company or bio is left out it will be disabled automatically.
  *
  * @apiParam (Include Info) {Boolean} includeName Should the users name be included.
@@ -32,46 +83,9 @@ router.get('/repo-card/:owner/:repo', function(req, res, next) {
  * @apiParam (Card Settings) {String} theme Should the card use the "dark" or "light" theme. This can be left out. Defaults to light.
  * @apiParam (Card Settings) {String} size Should the card be "normal" or "large" size. This can be left out. Currently only works on vertical layouts. Defaults to normal.
  *
- * @apiSuccess {HTML} EmbeddableCardPage The Github user card.
+ * @apiSuccess {HTML} EmbeddableCardPage The Github user card. (Usually used in a iFrame)
  */
 router.get('/user-card/:username', function(req, res, next) {
-	// Demo API values for testing
-	// var json = {
-	// 	login: 'defunkt',
-	// 	id: 2,
-	// 	node_id: 'MDQ6VXNlcjI=',
-	// 	avatar_url: 'https://avatars0.githubusercontent.com/u/2?v=4',
-	// 	gravatar_id: '',
-	// 	url: 'https://api.github.com/users/defunkt',
-	// 	html_url: 'https://github.com/defunkt',
-	// 	followers_url: 'https://api.github.com/users/defunkt/followers',
-	// 	following_url: 'https://api.github.com/users/defunkt/following{/other_user}',
-	// 	gists_url: 'https://api.github.com/users/defunkt/gists{/gist_id}',
-	// 	starred_url: 'https://api.github.com/users/defunkt/starred{/owner}{/repo}',
-	// 	subscriptions_url: 'https://api.github.com/users/defunkt/subscriptions',
-	// 	organizations_url: 'https://api.github.com/users/defunkt/orgs',
-	// 	repos_url: 'https://api.github.com/users/defunkt/repos',
-	// 	events_url: 'https://api.github.com/users/defunkt/events{/privacy}',
-	// 	received_events_url: 'https://api.github.com/users/defunkt/received_events',
-	// 	type: 'User',
-	// 	site_admin: false,
-	// 	name: 'Chris Wanstrath',
-	// 	company: 'A Company',
-	// 	blog: 'http://chriswanstrath.com/',
-	// 	location: null,
-	// 	email: null,
-	// 	hireable: null,
-	// 	// bio: '🍔',
-	// 	bio:
-	// 		'160 asdasd asdasd asdsadasd asd ad asd asd asd asd a adasdasdas dasd asdasdas dasd asdasdasd asda sda sdasdna ,msndkajshfkjsl dhfkljasdhf klsajdhf asdhf osahfjd',
-	// 	public_repos: 107,
-	// 	public_gists: 273,
-	// 	followers: 20880,
-	// 	following: 210,
-	// 	created_at: '2007-10-20T05:24:19Z',
-	// 	updated_at: '2019-11-01T21:56:00Z',
-	// }
-
 	// Checks what to include and what not to include
 	let includeName = req.query.includeName ? req.query.includeName == 'true' : true
 	let includeUsername = req.query.includeUsername ? req.query.includeUsername == 'true' : true
@@ -85,16 +99,13 @@ router.get('/user-card/:username', function(req, res, next) {
 	// Get other variables for the card
 	let isVertical = req.query.vertical ? req.query.vertical == 'true' : true
 	let theme = req.query.theme || 'light'
-	// TODO: Add validation that this is either normal or large
 	let size = req.query.size || 'normal'
 
 	getUser(req.params.username)
 		.then((json) => {
-			// res.send(json)
-
 			// If one of the returned fields is blank don't include it. (This is only for fields that could be blank)
-			includeCompany = json.data.company !== '' ? includeCompany : false
-			includeBio = json.data.bio !== '' ? includeBio : false
+			includeCompany = json.data.company != null ? includeCompany : false
+			includeBio = json.data.bio != null ? includeBio : false
 
 			// The variables are used in both vertical and horizontal views so we pass all of them to both.
 			let renderVars = {
