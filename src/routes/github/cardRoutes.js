@@ -5,7 +5,7 @@ import { numberWithCommas } from '../../utils'
 var router = express.Router()
 
 /**
- * @api {get} /api/cards/repo-card/:owner/:repo
+ * @api {get} /api/cards/github/repo-card/:owner/:repo
  * @apiName GetRepoCard
  * @apiGroup Github
  * @apiDescription Gets the repo-card view for the specified repo. (Usually used in iFrame).
@@ -65,7 +65,7 @@ router.get('/repo-card/:owner/:repo', function(req, res, next) {
 })
 
 /**
- * @api {get} /api/cards/user-card/:github_username
+ * @api {get} /api/cards/github/user-card/:github_username
  * @apiName GetUserCard
  * @apiGroup Github
  * @apiDescription Gets the user-card view for the specified user. (Usually used in iFrame). If company or bio is left out it will be disabled automatically.

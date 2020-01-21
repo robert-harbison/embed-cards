@@ -18,7 +18,7 @@
 		"preinstall": "npx npm-force-resolutions",
 		"debug": "nodemon -e js,pug,css --verbose --watch bin --watch ssl --watch public --watch src --exec \"npm run build:start\"",
 		"start": "node -r dotenv/config ./dist/bin/www dotenv_config_path=./dev.env",
-		"build": "npm run clean && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./package-lock.json,./npm-debug.log,./doc --copy-files",
+		"build": "npm run clean && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./npm-debug.log,./doc --copy-files",
 		"build:start": "npm run build && npm run start",
 		"gendocs": "apidoc -i src/ -o docs/"
 	},
@@ -28,6 +28,7 @@
 		"dotenv": "^8.2.0",
 		"express": "~4.16.1",
 		"morgan": "~1.9.1",
+		"pm2": "^4.2.3",
 		"pug": "^2.0.4"
 	},
 	"devDependencies": {
