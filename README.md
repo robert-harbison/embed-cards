@@ -39,7 +39,6 @@ TODO:
 
 ### Bugs
     - the css doesnt load fast enoguh can I preload the page? This may not be a problem in the iFrame?
-    - When removing the company it should remove the border from the bottom of the info box
 
 ## .env File
 Example dev.env:

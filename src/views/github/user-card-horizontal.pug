@@ -3,6 +3,7 @@ html
     title= title
     link(rel='stylesheet', href='../../../../../stylesheets/style.css')
     link(rel='stylesheet', href='../../../../../stylesheets/github/user-card.css')
+    script(src="../../../../../scripts/iframeResizer.contentWindow.min.js")
   body
     block content
       a(href=url class="card-container user-card-horizontal user-card " + theme target="_blank")
@@ -31,6 +32,7 @@ html
               span(class="block repos") #{repos}
               span(class="subtitle") Repos
         if include.company
-          div(class="spacer-extra-small")
-          span(class="company block") Works At: #{company}
-          div(class="spacer-extra-small")
+          div(class="company-container")
+            div(class="spacer-extra-small")
+            span(class="company block") Works At: #{company}
+            div(class="spacer-extra-small")
