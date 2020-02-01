@@ -23,7 +23,6 @@
 		"gendocs": "apidoc -i src/ -o docs/"
 	},
 	"dependencies": {
-		"@octokit/app": "^4.1.1",
 		"@octokit/rest": "^16.37.0",
 		"dotenv": "^8.2.0",
 		"express": "~4.16.1",

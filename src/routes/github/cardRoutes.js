@@ -101,7 +101,7 @@ router.get('/user-card/:username', function(req, res, next) {
 	let theme = req.query.theme || 'light'
 	let size = req.query.size || 'normal'
 
-	getUser(req.params.username)
+	let test = getUser(req.params.username)
 		.then((json) => {
 			// If one of the returned fields is blank don't include it. (This is only for fields that could be blank)
 			includeCompany = json.data.company != null ? includeCompany : false

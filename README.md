@@ -33,6 +33,8 @@ TODO:
     - Test the max github bio length to make sure it looks good or cut it off.
     - Add a configurable character limit to bio's
     - Can I recode the tempaltes for horiz and vertical to use a responsive patter so there isn't 2 templates? If so add option for width so its responsive.
+    - Add unit tests
+    - Cache github fetches to not go over API call limit
 
 ### To Test
     - Does it work with gravitar and no profile picture
