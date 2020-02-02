@@ -16,7 +16,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, '../public')))
 
-app.use('/api/cards/github/', cardRoutes)
+app.use('/cards/github/', cardRoutes)
 
 // Catch 404
 app.use((req, res, next) => {
