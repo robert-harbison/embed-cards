@@ -1,7 +1,7 @@
 [
   {
     "type": "get",
-    "url": "/api/cards/github/repo-card/:owner/:repo",
+    "url": "/cards/github/repo-card/:owner/:repo",
     "title": "",
     "name": "GetRepoCard",
     "group": "Github",
@@ -89,7 +89,7 @@
   },
   {
     "type": "get",
-    "url": "/api/cards/github/user-card/:github_username",
+    "url": "/cards/github/user-card/:github_username",
     "title": "",
     "name": "GetUserCard",
     "group": "Github",

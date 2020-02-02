@@ -1,5 +1,8 @@
 [WIP] Check back for updates.
 
+# GitHub Usage (GitHub is the only supported card right now)
+For User Cards: http://api.embed-cards.com/api/cards/github/user-card/[GITHUB_USERNAME]
+
 # Upcoming
     - Embed Cards api and website
     - Embed Cards React npm package
@@ -45,8 +48,11 @@ TODO:
 ## .env File
 Example dev.env:
 ```
-PORT=[port by default 4000]
+PORT=[port ]
 GITHUB_APP_ID=[appID]
+
+PORT=[PORT]
+GITHUB_TOKEN=[Personal GitHub Token]
 ```
 
 ## Certificates

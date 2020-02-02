@@ -1,0 +1,9 @@
+{
+	"name": "embeddable-cards",
+	"version": "0.0.1",
+	"description": "Api docs for embeddable cards. Embed cards such as GitHub into your website with ease.",
+	"apidoc": {
+		"title": "Embeddable Cards",
+		"url": "http://api.embed-cards.com"
+	}
+}
